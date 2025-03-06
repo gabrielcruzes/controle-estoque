@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque Total</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">📦 Controle de Estoque</h1>
+        <div class="table-responsive shadow-sm">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Nome</th>
+                        <th>Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for produto in produtos %}
+                    <tr>
+                        <td>{{ produto.nome }}</td>
+                        <td>{{ produto.quantidade }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="card mt-4 shadow-sm">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0">📊 Resumo do Estoque</h5>
+            </div>
+            <div class="card-body">
+                <h4 class="text-center">
+                    Quantidade Total em Estoque:
+                    <span class="badge bg-primary">{{ total_estoque }}</span>
+                </h4>
+            </div>
+        </div>
+        <div class="text-center mt-4 d-grid gap-2 d-md-block">
+            <a href="/cadastrar" class="btn btn-primary">➕ Novo Produto</a>
+            <a href="/movimentar" class="btn btn-success">🔄 Movimentação</a>
+            <a href="/historico" class="btn btn-info">📋 Histórico</a>
+            <a href="/produtos" class="btn btn-info">📋 Gerenciar Produtos</a>
+        </div>
+    </div>
+</body>
+</html>
